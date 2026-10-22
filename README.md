@@ -59,7 +59,7 @@ This file doubles as your MVP contribution log.
 ## Go live (GitHub Pages + netcup)
 
 1. **Repo visibility:** GitHub Pages on a free account needs a **public** repo. Develop privately, flip to public when ready (or use GitHub Pro).
-2. **Settings → Pages → Source:** "GitHub Actions". Then re-enable the `push` trigger in `.github/workflows/hugo.yml` (currently paused) so every push to `main` deploys.
+2. **Settings → Pages → Source:** "GitHub Actions". Every merge to `main` deploys automatically.
 3. **Settings → Pages → Custom domain:** `marvinrose.dev`, then tick **Enforce HTTPS** (.dev requires HTTPS).
 4. **DNS at netcup** (CCP → Domains → DNS):
 
@@ -84,6 +84,7 @@ This file doubles as your MVP contribution log.
 - [x] Project links
 - [ ] Write and publish the first post (via pull request, `draft: false`)
 - [ ] Confirm Umami EU region and DPA
-- [ ] Repo public → Pages → DNS at netcup → verify domain
+- [x] Verify domain, DNS at netcup, Pages enabled
+- [ ] Custom domain in repo settings → Enforce HTTPS
 
 Privacy: no cookies, no external fonts or CDNs. Page views are counted with cookieless Umami Cloud (EU), only in production builds — config in `config/_default/params.toml` → `[umamiAnalytics]`.
