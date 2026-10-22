@@ -1,0 +1,5 @@
+{{/* Profile photo for the About page. Usage: {{< portrait >}} */}}
+{{ with resources.Get "img/marvin.jpg" }}
+  {{ $img := .Fill "480x480 Center q90" }}
+  <img class="mr-portrait" src="{{ $img.RelPermalink }}" width="240" height="240" alt="Marvin Rose">
+{{ end }}

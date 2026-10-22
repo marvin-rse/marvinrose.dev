@@ -1,0 +1,8 @@
+{{/* Overrides the Blowfish homepage: hero → recent posts → latest talk. */}}
+{{ define "main" }}
+  {{ partial "home/custom.html" . }}
+  <section>
+    {{ partial "recent-articles/main.html" . }}
+  </section>
+  {{ partial "home/latest-talk.html" . }}
+{{ end }}

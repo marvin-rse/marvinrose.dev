@@ -1,0 +1,11 @@
+{{/* Latest talk from data/talks.yaml — rendered below the recent posts. */}}
+{{ with index (hugo.Data.talks | default slice) 0 }}
+<section class="mr-home-talk">
+  <h2 class="mt-12 text-2xl font-extrabold mb-6">Latest talk</h2>
+  <a class="mr-talkline" href="{{ "talks/" | relLangURL }}">
+    <span class="mr-talkline__title">{{ .title }}</span>
+    <span class="mr-talkline__meta">{{ .event }}, {{ .location }} · {{ time.Format "2 Jan 2006" .date }}{{ with .coSpeakers }} · with {{ range $i, $s := . }}{{ if $i }}, {{ end }}{{ if reflect.IsMap $s }}{{ $s.name }}{{ else }}{{ $s }}{{ end }}{{ end }}{{ end }}</span>
+  </a>
+  <p class="mr-home-talk__more"><a href="{{ "talks/" | relLangURL }}">All talks →</a></p>
+</section>
+{{ end }}

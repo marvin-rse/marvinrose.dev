@@ -1,0 +1,23 @@
+{{/* Renders data/talks.yaml. Usage in content: {{< talks >}} */}}
+<ul class="mr-talks">
+  {{ range hugo.Data.talks }}
+  <li class="mr-talk">
+    <span class="mr-talk__date">{{ time.Format "2 January 2006" .date }}</span>
+    <h3>{{ .title }}</h3>
+    <p class="mr-talk__meta">
+      {{ with .eventUrl }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}{{ .event }}{{ with .eventUrl }}</a>{{ end }}
+      · {{ .location }}{{ with .format }} · {{ . }}{{ end }}{{ with .language }} · {{ . }}{{ end }}
+      {{ with .coSpeakers }}<br>with
+        {{ range $i, $s := . }}{{ if $i }}, {{ end }}{{ if reflect.IsMap $s }}{{ with $s.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $s.name }}</a>{{ else }}{{ $s.name }}{{ end }}{{ else }}{{ $s }}{{ end }}{{ end }}
+      {{ end }}
+    </p>
+    {{ with .abstract }}<p class="mr-talk__abstract">{{ . }}</p>{{ end }}
+    {{ with .tags }}<div class="mr-chips">{{ range . }}<span class="mr-chip">{{ . }}</span>{{ end }}</div>{{ end }}
+    <div class="mr-talk__links">
+      {{ with .slides }}<a href="{{ . }}" target="_blank" rel="noopener">Slides</a>{{ end }}
+      {{ with .recording }}<a href="{{ . }}" target="_blank" rel="noopener">Recording</a>{{ end }}
+      {{ with .post }}<a href="{{ . | relLangURL }}">Blog post</a>{{ end }}
+    </div>
+  </li>
+  {{ end }}
+</ul>

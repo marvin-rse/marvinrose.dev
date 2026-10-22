@@ -1,0 +1,89 @@
+# Custom scheme in assets/css/schemes/graphite.css (neutral graphite + one accent)
+colorScheme = "graphite"
+defaultAppearance = "dark"
+autoSwitchAppearance = false
+
+enableSearch = true
+enableCodeCopy = true
+enableA11y = true
+enableStructuredBreadcrumbs = true
+
+mainSections = ["posts"]
+smartTOC = true                       # highlight the current section in the table of contents
+smartTOCHideUnfocusedChildren = false
+disableTextInHeader = false
+fingerprintAlgorithm = "sha512"
+
+[header]
+  layout = "basic"
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  # Own homepage in layouts/partials/home/custom.html
+  layout = "custom"
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/posts/"
+  cardView = true
+  cardViewScreenWidth = false
+
+[article]
+  showDate = true
+  showDateUpdated = true
+  showAuthor = true
+  showAuthorBottom = true
+  showHero = true
+  heroStyle = "basic"
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  seriesOpened = true
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = true
+  showReadingProgress = true
+  showTableOfContents = true
+  showRelatedContent = true
+  relatedContentLimit = 3
+  showTaxonomies = true
+  showCategories = false
+  showTags = true
+  showWordCount = false
+  showZenMode = true
+  sharingLinks = ["linkedin", "bluesky", "reddit", "email"]
+
+[list]
+  showHero = false
+  showBreadcrumbs = false
+  showSummary = true
+  showTableOfContents = false
+  showCards = false
+  groupByYear = true
+  cardView = false
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+  showTermCount = true
+
+[term]
+  showHero = false
+  groupByYear = true
+  cardView = false
+
+# Privacy-friendly, cookieless page analytics (Umami Cloud).
+# Only loaded in production builds — `hugo server` does not track.
+[umamiAnalytics]
+  websiteid = "d01c0313-9986-4ff7-a77d-ea71157c67ea"
+  domain = "cloud.umami.is"
+  dataDomains = "marvinrose.dev"   # only count visits on the real domain
+  doNotTrack = true                # respect the browser's Do Not Track setting
+  enableTrackEvent = false         # page views only, no extra custom events

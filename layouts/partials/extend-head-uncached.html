@@ -1,0 +1,6 @@
+{{/* RSS autodiscovery on every page (Hugo only adds it to the homepage by default). */}}
+{{ if not .IsHome }}
+  {{ with site.Home.OutputFormats.Get "rss" }}
+    <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+  {{ end }}
+{{ end }}

@@ -1,0 +1,24 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Marvin Rose"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  description = "Marvin Rose writes about Microsoft Security: Microsoft Sentinel, Defender XDR, Entra ID, KQL and detection engineering."
+  copyright = "© 2026 Marvin Rose · Content licensed under CC BY 4.0"
+
+[params.author]
+  name = "Marvin Rose"
+  headline = "Cyber Security Architect · Microsoft Sentinel · Defender XDR · Entra"
+  bio = "Cyber Security Architect at glueckkanja AG. I write about Microsoft Sentinel, Defender XDR, Entra ID and KQL, and share the queries I actually use in the field."
+  image = "img/marvin.jpg"
+  links = [
+    { linkedin = "https://www.linkedin.com/in/marvin-rse/" },
+    { github = "https://github.com/marvin-rse" },
+    { rss = "/index.xml" },
+  ]

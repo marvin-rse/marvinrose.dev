@@ -1,0 +1,58 @@
+theme = "blowfish"
+baseURL = "https://marvinrose.dev/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+summaryLength = 30
+buildDrafts = false
+buildFuture = false
+enableEmoji = true
+
+[pagination]
+  pagerSize = 20
+
+[imaging]
+  anchor = "Center"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# RSS: one feed at /index.xml with blog posts only (see layouts/_default/rss.xml).
+# Sections, tags and categories get no separate feeds.
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[related]
+  threshold = 0
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "series"
+    weight = 80
+  [[related.indices]]
+    name = "categories"
+    weight = 50
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# No third-party trackers or font CDNs by default (GDPR-friendly).
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
+  [privacy.vimeo]
+    enableDNT = true
+  [privacy.x]
+    enableDNT = true

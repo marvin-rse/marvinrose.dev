@@ -1,0 +1,22 @@
+# Newest first. Every talk you give goes here — this page doubles as
+# your MVP contribution log (date, event, audience, links).
+- title: "Normalize Once, Detect Everywhere: Inside Microsoft Sentinel's ASIM"
+  date: 2026-10-20
+  event: "Security Ninjas Germany"
+  eventUrl: "https://www.linkedin.com/company/security-ninjas-germany/"
+  location: "Microsoft, Munich"
+  coSpeakers:
+    - name: "Jannis Langthaler"
+      url: "https://langthaler.blog/"
+  format: "Session"
+  language: "German"
+  abstract: >-
+    Every data source speaks its own dialect. The Advanced Security Information
+    Model (ASIM) gives Microsoft Sentinel one schema to rule them all: write a
+    detection once and let parsers do the translation. We look at how ASIM
+    parsers work under the hood, where performance bites, and how to build
+    custom parsers for sources Microsoft doesn't ship.
+  tags: ["Microsoft Sentinel", "ASIM", "KQL", "Detection Engineering"]
+  slides: "https://github.com/marvin-rse/slides/blob/main/Security%20Ninjas%20Germany%2026-Normalize%20Once%20Detect%20Everywhere.pdf"
+  recording: ""   # link to recording if available
+  post: ""        # link to a related blog post, e.g. /posts/my-post/

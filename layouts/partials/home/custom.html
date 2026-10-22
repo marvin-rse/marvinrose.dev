@@ -1,0 +1,48 @@
+{{/* Custom homepage for marvinrose.dev — balanced: dark, flat, one accent. */}}
+{{ $author := .Site.Params.Author }}
+<section class="mr-hero">
+  <div class="mr-hero__text">
+    <div class="mr-hero__head">
+      {{ with resources.Get "img/marvin.jpg" }}
+        {{ $img := .Fill "160x160 Center q90" }}
+        <img class="mr-avatar" src="{{ $img.RelPermalink }}" width="56" height="56" alt="Marvin Rose">
+      {{ end }}
+      <p class="mr-label">Microsoft Security · Detection Engineering</p>
+    </div>
+    <h1 class="mr-hero__title">Marvin Rose</h1>
+    <p class="mr-hero__lead">
+      Cyber Security Architect. I write about <strong>Microsoft Sentinel</strong>,
+      <strong>Defender XDR</strong> and <strong>Entra ID</strong> — how they work
+      under the hood, and the KQL I actually use.
+    </p>
+    <div class="mr-hero__actions">
+      <a class="mr-btn mr-btn--primary" href="{{ "posts/" | relLangURL }}">Read the blog</a>
+      <a class="mr-btn" href="{{ "talks/" | relLangURL }}">Talks</a>
+      <span class="mr-hero__links">{{ partialCached "author-links.html" . }}</span>
+    </div>
+  </div>
+
+  <figure class="mr-query" aria-label="About me, written as a KQL query">
+    <figcaption class="mr-query__bar">whoami.kql</figcaption>
+<pre class="mr-query__code"><code><span class="k">SecurityPeople</span>
+<span class="p">|</span> <span class="o">where</span> Name <span class="p">==</span> <span class="s">"Marvin Rose"</span>
+<span class="p">|</span> <span class="o">extend</span> Role <span class="p">=</span> <span class="s">"Cyber Security Architect"</span>
+<span class="p">|</span> <span class="o">mv-expand</span> Focus <span class="p">=</span> <span class="f">dynamic</span>([
+    <span class="s">"Sentinel"</span>, <span class="s">"Defender XDR"</span>,
+    <span class="s">"Entra ID"</span>, <span class="s">"ASIM"</span>, <span class="s">"KQL"</span>])
+<span class="p">|</span> <span class="o">project</span> Name, Role, Focus</code></pre>
+  </figure>
+</section>
+
+<nav class="mr-topics" aria-label="Topics">
+  <a href="{{ "tags/microsoft-sentinel/" | relLangURL }}">Microsoft Sentinel</a>
+  <a href="{{ "tags/defender-xdr/" | relLangURL }}">Defender XDR</a>
+  <a href="{{ "tags/entra-id/" | relLangURL }}">Entra ID</a>
+  <a href="{{ "tags/kql/" | relLangURL }}">KQL</a>
+</nav>
+
+
+
+{{ with .Content }}
+<section class="prose dark:prose-invert max-w-none mt-8">{{ . }}</section>
+{{ end }}
