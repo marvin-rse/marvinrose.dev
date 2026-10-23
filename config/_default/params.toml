@@ -13,6 +13,8 @@ smartTOC = true                       # highlight the current section in the tab
 smartTOCHideUnfocusedChildren = false
 disableTextInHeader = false
 fingerprintAlgorithm = "sha512"
+defaultSocialImage = "img/social-default.png"   # link preview (LinkedIn etc.) for pages without their own featured.png
+thumbnailAspectRatio = "1.91"                   # same ratio as the 1200x627 preview cards, so thumbnails aren't cropped
 
 [header]
   layout = "basic"

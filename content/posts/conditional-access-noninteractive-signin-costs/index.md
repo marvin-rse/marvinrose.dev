@@ -6,6 +6,7 @@ description: "Every Conditional Access policy, whether enforced, report-only or 
 summary: "Every Conditional Access policy ends up in every sign-in record, even the ones that don't apply. A KQL query to correlate CA policy changes with AADNonInteractiveUserSignInLogs ingestion, and why you shouldn't just drop the column."
 tags: ["Microsoft Sentinel", "Entra ID", "Conditional Access", "KQL", "Cost Optimization"]
 categories: ["Microsoft Sentinel"]
+showHero: false   # featured.png is the social preview card, not shown at the top of the post
 ---
 
 ## TL;DR
