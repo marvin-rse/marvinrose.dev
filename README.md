@@ -35,7 +35,7 @@ series_order: 2              # optional
 
 Titles and headings use **sentence case** (capitalise the first word, the first word after a colon, and product names like Conditional Access).
 
-Put images next to `index.md`; a file called `featured.png` becomes the post's hero/social image.
+Put images next to `index.md`. A file called `featured.png` (1200×627) becomes the post's link preview on LinkedIn and other social networks; add `showHero: false` to the front matter if it shouldn't also appear at the top of the post. Pages without one use `assets/img/social-default.png`.
 Use ```` ```kql ```` for KQL code blocks.
 
 ## Add a talk
