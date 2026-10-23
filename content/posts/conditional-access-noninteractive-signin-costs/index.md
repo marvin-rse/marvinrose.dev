@@ -1,7 +1,7 @@
 ---
 title: "Report-only is not cost-free: How Conditional Access inflates your non-interactive sign-in logs"
-date: 2026-10-22
-draft: true
+date: 2026-10-23
+draft: false
 description: "Every Conditional Access policy, whether enforced, report-only or even disabled, is written into every non-interactive sign-in record. Here's how to measure what that does to your Sentinel ingestion, how to find the policy behind a spike, and why dropping the column is usually the wrong fix."
 summary: "Every Conditional Access policy ends up in every sign-in record, even the ones that don't apply. A KQL query to correlate CA policy changes with AADNonInteractiveUserSignInLogs ingestion, and why you shouldn't just drop the column."
 tags: ["Microsoft Sentinel", "Entra ID", "Conditional Access", "KQL", "Cost Optimization"]
