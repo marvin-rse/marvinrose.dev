@@ -13,7 +13,7 @@ All queries live in my [defenderxdr](https://github.com/marvin-rse/defenderxdr) 
 
 ## Sentinel cost and sizing
 
-**Conditional Access ingestion analysis**: Correlates daily `AADNonInteractiveUserSignInLogs` ingestion with the number and state of Conditional Access policies, to find the policy changes behind a cost spike.
+**Conditional Access ingestion analysis**: Correlates daily `AADNonInteractiveUserSignInLogs` ingestion with the number and state of Conditional Access policies, to find the policy changes behind a cost spike. Background in the post [Report-only is not cost-free](/posts/conditional-access-noninteractive-signin-costs/).
 [View on GitHub →](https://github.com/marvin-rse/defenderxdr/blob/main/AADNonInteractiveUserSignInLogs/ca-ingestion-analysis.md)
 
 **Entra ID data connector sizing**: Estimates the ingestion volume of the Sentinel Microsoft Entra ID connector *before* you enable it, using Defender XDR Advanced Hunting as a proxy.
