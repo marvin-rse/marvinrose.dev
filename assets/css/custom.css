@@ -229,3 +229,14 @@
 @media (min-width: 640px) {
   .mr-portrait { float: right; width: 200px; height: 200px; margin: 0.25rem 0 1rem 2rem !important; }
 }
+
+/* Accessibility settings: Blowfish opens them as a centred dialog without a backdrop,
+   which looks like a stray box over the page. Open them as a dropdown under the icon instead. */
+div:has(> #desktop-a11y-toggle) { position: relative; }
+#desktop-a11y-panel {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: auto;
+  right: -0.75rem;
+  translate: none;
+}
