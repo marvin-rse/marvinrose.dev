@@ -240,3 +240,12 @@ div:has(> #desktop-a11y-toggle) { position: relative; }
   right: -0.75rem;
   translate: none;
 }
+
+/* Post list: keep the 1200x627 preview cards uncropped. Blowfish stretches the
+   thumbnail to the height of the text next to it and crops the image to fill it. */
+.article-link--simple > .thumbnail {
+  aspect-ratio: 1200 / 627;
+  min-height: 0;
+  height: auto;
+  align-self: flex-start;
+}
