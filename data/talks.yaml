@@ -1,5 +1,4 @@
-# Newest first. Every talk you give goes here — this page doubles as
-# your MVP contribution log (date, event, audience, links).
+# Newest first. Shown on /talks/, the newest one also on the homepage.
 - title: "Normalize Once, Detect Everywhere: Inside Microsoft Sentinel's ASIM"
   date: 2026-10-20
   event: "Security Ninjas Germany"
