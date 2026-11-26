@@ -222,6 +222,38 @@ AADNonInteractiveUserSignInLogs
 
 The policies at the top with a `FirstSeen` on your spike day are your prime suspects. To find disabled policies instead, replace the `where` line with `| where PolicyResult == "notEnabled"`. Then cross-check in the Entra audit log who created or changed them, and why.
 
+## Reviewing the apps behind the sign-ins
+
+The number of policies decides how big each record is. The other half of the bill is how many records you get, and that's driven by apps. A client that fails over and over, for example because its refresh token expired or Conditional Access blocks it, writes a full record with the complete policy array for every attempt, without a single successful sign-in.
+
+This query shows the top 10 apps by number of non-interactive sign-ins, how many of them succeeded and failed, and how much they cost you in billable volume:
+
+```kql
+AADNonInteractiveUserSignInLogs
+| where TimeGenerated > ago(7d)
+| summarize SignIns    = count(),
+            Successful = countif(ResultType == "0"),
+            Failed     = countif(ResultType != "0"),
+            Users      = dcount(UserPrincipalName),
+            BilledMB   = round(sum(_BilledSize) / pow(1024, 2), 1)
+    by AppDisplayName, ClientAppUsed
+| extend FailedPercent = round(100.0 * Failed / SignIns, 1)
+| top 10 by SignIns desc
+```
+
+For the failures, this one shows which apps fail most and with which error code:
+
+```kql
+AADNonInteractiveUserSignInLogs
+| where TimeGenerated > ago(7d)
+| where ResultType != "0"
+| summarize Failed = count(), Users = dcount(UserPrincipalName)
+    by AppDisplayName, ResultType, ResultDescription
+| top 10 by Failed desc
+```
+
+`ResultType` `0` means success. Not every other code is a problem, though. Interruptions like `50074` (MFA required) are part of a normal sign-in flow. Look for apps with a high `FailedPercent` and the same error code day after day, such as `53003` (blocked by Conditional Access) or `70043` (refresh token expired because of a sign-in frequency policy). Those are clients retrying something that will never succeed, and you pay for every attempt.
+
 ## Fixing it
 
 ### Option 1: Fix the cause with policy hygiene (recommended)
@@ -312,6 +344,7 @@ My take: fix the framework first. Consolidate, delete what's disabled and turn r
 - Conditional Access changes don't only change who can sign in. They change how much **every** sign-in costs you to store.
 - Report-only and disabled policies are the usual suspects: they enforce nothing, but they're in every record.
 - Measure first: the query in this post shows you the exact day and the policy state behind an ingestion change.
+- Check which apps produce the records. Clients that keep failing write a full record for every attempt.
 - Know your E5 grant. Inflated sign-in records use up the free allowance that your Defender XDR data would otherwise get.
 - Consolidate your Conditional Access framework before you touch the data. The policy limit is a ceiling, not a target. The `ConditionalAccessPolicies` column is too valuable for detections and investigations to drop for convenience.
 - If you do touch the data, remove only what carries no information, which means disabled policies. Keep report-only results, they're how you evaluate a policy before enabling it.
